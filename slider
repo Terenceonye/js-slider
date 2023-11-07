@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .slider-container {
+      width: 400px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 1s;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<!-- WRITTEN BY MAYOR (Terence Onyeweke) -->
+
+  <div class="slider-container">
+    <div class="slider">
+      <img src="image1.jpg" alt="Image 1">
+      <img src="image2.jpg" alt="Image 2">
+      <img src="image3.jpg" alt="Image 3">
+    </div>
+  </div>
+
+  <script>
+    const slider = document.querySelector('.slider');
+    let currentSlide = 0;
+
+    function slide() {
+      currentSlide = (currentSlide + 1) % slider.children.length;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    setInterval(slide, 1000);
+  </script>
+</body>
+</html>
